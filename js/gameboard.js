@@ -28,6 +28,13 @@ const gameBoard = (() => {
 
 	  render(template, document.querySelector('#container'));
 	  console.log(template);
-	};
+  };
+  
+  return {
+    renderGameBoard,
+    gameArr 
+  }
 })();
+
+
 
