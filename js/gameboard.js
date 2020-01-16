@@ -30,11 +30,8 @@ const gameBoard = (() => {
 	  console.log(template);
   };
   
-  return {
-    renderGameBoard,
-    gameArr 
-  }
+  return { renderGameBoard, gameArr }
 })();
 
 
-
+export {gameboard};
