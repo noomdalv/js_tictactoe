@@ -8,7 +8,7 @@ const gameBoard = (() => {
   let player1;
   let player2;
   let currentPlayer;
-  
+
   const winningCombos = [
     ['one', 'two', 'three'],
     ['four','five', 'six'],
@@ -53,15 +53,23 @@ const gameBoard = (() => {
 
     renderGameBoard();
   }
-	
+
 
 	const render = function (template, node) {
 	  node.innerHTML = template;
 	};
 
-	const renderGameBoard = function (resultsTemplate = "") {
+	const renderGameBoard = (resultsTemplate = "") => {
 
-    let playerForm = ``
+    let playerForm = `<div class="players-info">
+												<label for="player1_name">Player X: </label>
+												<input type="text" id="player1_name"></input>
+
+												<label for="player2_name">Player O: </label>
+												<input type="text" id="player2_name"></input>
+
+												<button onclick="playerCreation()">Start</button>
+											</div>`
 
     let gameBoard = `<div id='gameboard'>
                       <div>
@@ -80,6 +88,7 @@ const gameBoard = (() => {
                         <button onclick=${onclick.nine}  id='nine'>${gamePositions.nine}</button>
                       </div>
                     </div>`;
+										
     if (player1.name !== false && player2.name !== false) {
       renderTemplate = gameBoard + resultsTemplate;
     } else {
@@ -104,7 +113,7 @@ const gameBoard = (() => {
       let errorMessage = `<div class='error'>
                             <h3>You need to submit your name to start the game!</h3>
                           </div>`
-      renderGameBoard(errorMesage);
+      renderGameBoard(errorMessage);
     }
 
     onclick[buttonId] = '';
@@ -163,7 +172,7 @@ const gameBoard = (() => {
 
 		player1.name = p1Name
 		player2.name = p2Name
-	}  
+	}
 
-  renderGameBoard();
+	startGame();
 })();
