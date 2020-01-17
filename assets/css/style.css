@@ -3,16 +3,15 @@
 }
 
 .cell {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 
 .gameboard {
   width: max-content;
   height: max-content;
-  margin: 100px auto ;
-  font-size: large;
-  
+  margin: 80px auto 20px auto;
+  font-size: 40px;
 }
 
 form {
@@ -24,4 +23,9 @@ form {
 .start-button {
   width: 300px;
   margin: auto;
+}
+
+.result-box {
+	width: max-content;
+	margin: auto;	
 }

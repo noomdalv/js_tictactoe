@@ -54,6 +54,7 @@ const gameBoard = (() => {
                         <div class="form-group">
                           <label for="player2_name">Player O:</label>
                           <input type="text" class="form-control" id="player2_name">
+													<small id="playerHelp" class="form-text text-muted">Submit player names to be able to play.</small>
                         </div>
                         <button onclick="gameBoard.playerCreation()" class="btn-lg btn btn-primary start-button">Start</button>
                       </form>`
@@ -93,19 +94,19 @@ const gameBoard = (() => {
   }
 	// switchPlayer function
 	const switchPlayer = () => { (currentPlayer === player1) ? currentPlayer = player2 : currentPlayer = player1 }
-  
+
   // displayResult function
 	const displayResults = (result, player) => {
 		if (result === "draw") {
-			let drawTemplate = `<div class="result-draw">
-                            <h3>It's a draw!</h3>
-                            <button onclick="gameBoard.startGame()">Play Again?</button>
+			let drawTemplate = `<div class="result-box mx-auto">
+                            <h3 class="text-center">It's a draw!</h3>
+                            <button onclick="gameBoard.startGame()" class="btn btn-lg btn-success btn-block">Play Again?</button>
 													</div>`;
 			renderGameBoard(drawTemplate);
 		} else if (result === "won") {
-			let winTemplate = `<div class="result-win">
-														<h3>${player.name} wins!</h3>
-														<button onclick="gameBoard.startGame()">Play Again?</button>
+			let winTemplate = `<div class="result-box">
+														<h3 class="text-center">${player.name} wins!</h3>
+														<button onclick="gameBoard.startGame()" class="btn btn-lg btn-success btn-block">Play Again?</button>
 													</div>`;
 			renderGameBoard(winTemplate);
     };
