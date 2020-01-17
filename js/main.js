@@ -18,7 +18,7 @@ const gameBoard = (() => {
 	  node.innerHTML = template;
 	};
 
-	const renderGameBoard = function () {
+	const renderGameBoard = function (resultsTemplate = "") {
 
     let template = `<div id='gameboard'>
                       <div>
@@ -38,6 +38,7 @@ const gameBoard = (() => {
                       </div>
                     </div>`;
 
+		template += resultsTemplate;
 	  render(template, document.querySelector('#container'));
 	  console.log(template);
   };
@@ -79,7 +80,7 @@ const gameBoard = (() => {
   }
 
   // checkWin function
-  
+
   const checkWin = () => {
     let currMark = currentPlayer.mark
     for (let i = 0; i < winningCombos.length; i++) {
@@ -102,7 +103,20 @@ const gameBoard = (() => {
 	}
 
 	// displayResult function
-
+	const displayResults = (result, player) => {
+		if (result === "draw") {
+			let drawTemplate = `<div class="result-draw">
+														<h3>It's a draw!</h3>
+													</div>`;
+			renderGameBoard(drawTemplate);
+		} else if (result === "won") {
+			let winTemplate = `<div class="result-win">
+														<h3>${player.name} wins!</h3>
+														<button onclick="playAgain()">Play Again?</button>
+													</div>`;
+			renderGameBoard(winTemplate);
+		}
+	}
 
 	// createPlayer function
 
