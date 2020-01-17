@@ -2,9 +2,25 @@
 
 > ​ The objective of this project is to build a Tic Tac Toe game implementation with Javascript.
 
-![screenshot]()
+## Instructions
+1. Players enter their name and start the game:
 
-Additional description about the project and its features.
+<p align="center">
+  <img src="https://i.imgur.com/FEJo98p.jpg">
+</p>
+
+2. Players choose positions:
+
+<p align="center">
+  <img src="https://i.imgur.com/XT2Xp47.jpg">
+</p>
+
+3. If a player matches 3 in a row, player wins:
+
+<p align="center">
+  <img src="https://i.imgur.com/FBkpEuL.jpg">
+</p>
+
 
 ## Built With
 
@@ -14,7 +30,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/noomdalv/js_tictactoe/index.html )
+[Live Demo Link](https://raw.githack.com/noomdalv/js_tictactoe/game_setup/index.html)
 
 
 ## Getting Started
