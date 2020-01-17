@@ -1,0 +1,27 @@
+.col {
+  height: 250px;
+}
+
+.cell {
+  width: 200px;
+  height: 200px;
+}
+
+.gameboard {
+  width: max-content;
+  height: max-content;
+  margin: 100px auto ;
+  font-size: large;
+  
+}
+
+form {
+  height: 500px;
+  width: 300px;
+  margin: 200px auto;
+}
+
+.start-button {
+  width: 300px;
+  margin: auto;
+}

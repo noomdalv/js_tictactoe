@@ -32,12 +32,6 @@ const gameBoard = (() => {
 	}
 	//Game Logic functions
 	const makeMove = (buttonId) => {
-		if (player1.name === "" || player2.name === "") {
-			let errorMessage = `<div class='error'>
-														<h3>You need to submit your name to start the game!</h3>
-													</div>`
-			renderGameBoard(errorMessage);
-		}
 		btnClick[buttonId] = '';
 		gamePositions[buttonId] = currentPlayer.mark;
 		movesCounter++;
@@ -52,34 +46,38 @@ const gameBoard = (() => {
     }
 	}
 	const renderGameBoard = (resultsTemplate = "") => {
-    let playerForm = `<div class="players-info">
-												<label for="player1_name">Player X: </label>
-												<input type="text" id="player1_name"></input>
-												<label for="player2_name">Player O: </label>
-												<input type="text" id="player2_name"></input>
-												<button onclick="gameBoard.playerCreation()">Start</button>
-											</div>`
-    let gameBoard = `<div id='gameboard'>
-                      <div>
-                        <button onclick=${btnClick.one} id='one'>${gamePositions.one}</button>
-                        <button onclick=${btnClick.two}  id='two'>${gamePositions.two}</button>
-                        <button onclick=${btnClick.three}  id='three'>${gamePositions.three}</button>
+    let playerForm = `<form>
+                        <div class="form-group">
+                          <label for="player1_name">Player X:</label>
+                          <input type="text" class="form-control" id="player1_name">
+                        </div>
+                        <div class="form-group">
+                          <label for="player2_name">Player O:</label>
+                          <input type="text" class="form-control" id="player2_name">
+                        </div>
+                        <button onclick="gameBoard.playerCreation()" class="btn-lg btn btn-primary start-button">Start</button>
+                      </form>`
+    let gameBoard = `<div id='gameboard' class='col gameboard '>
+                      <div class='row'>
+                        <button onclick=${btnClick.one} id='one' class='cell'>${gamePositions.one}</button>
+                        <button onclick=${btnClick.two}  id='two' class='cell'>${gamePositions.two}</button>
+                        <button onclick=${btnClick.three}  id='three' class='cell'>${gamePositions.three}</button>
                       </div>
-                      <div>
-                        <button onclick=${btnClick.four}  id='four'>${gamePositions.four}</button>
-                        <button onclick=${btnClick.five}  id='five'>${gamePositions.five}</button>
-                        <button onclick=${btnClick.six}  id='six'>${gamePositions.six}</button>
+                      <div class='row'>
+                        <button onclick=${btnClick.four}  id='four' class='cell'>${gamePositions.four}</button>
+                        <button onclick=${btnClick.five}  id='five' class='cell'>${gamePositions.five}</button>
+                        <button onclick=${btnClick.six}  id='six' class='cell'>${gamePositions.six}</button>
                       </div>
-                      <div>
-                        <button onclick=${btnClick.seven}  id='seven'>${gamePositions.seven}</button>
-                        <button onclick=${btnClick.eight}  id='eight'>${gamePositions.eight}</button>
-                        <button onclick=${btnClick.nine}  id='nine'>${gamePositions.nine}</button>
+                      <div class='row'>
+                        <button onclick=${btnClick.seven}  id='seven' class='cell'>${gamePositions.seven}</button>
+                        <button onclick=${btnClick.eight}  id='eight' class='cell'>${gamePositions.eight}</button>
+                        <button onclick=${btnClick.nine}  id='nine' class='cell'>${gamePositions.nine}</button>
                       </div>
                     </div>`;
     if (player1.name && player2.name) {
       renderTemplate = gameBoard + resultsTemplate;
     } else {
-      renderTemplate = playerForm + gameBoard + resultsTemplate;
+      renderTemplate = playerForm;
     }
 	  render(renderTemplate, document.querySelector('#container'));
   };
