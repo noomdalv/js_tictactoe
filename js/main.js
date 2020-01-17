@@ -2,7 +2,17 @@ const gameBoard = (() => {
 
 	//Game Setup
 
-	let gameArr = [1,2,3,4,5,6,7,8,9];
+	let gamePositions = {
+    one: '',
+    two: '',
+    three: '',
+    four: '',
+    five: '',
+    six: '',
+    seven: '',
+    eight: '',
+    nine: ''
+  };
 
 	const render = function (template, node) {
 	  node.innerHTML = template;
@@ -12,19 +22,19 @@ const gameBoard = (() => {
 
     let template = `<div id='gameboard'>
                       <div>
-                        <button id='0'>${gameArr[0]}</button>
-                        <button id='1'>${gameArr[1]}</button>
-                        <button id='2'>${gameArr[2]}</button>
+                        <button onclick='makeMove(one)' id='one'>${gamePositions.one}</button>
+                        <button onclick='makeMove(two)' id='two'>${gamePositions.two}</button>
+                        <button onclick='makeMove(three)' id='three'>${gamePositions.three}</button>
                       </div>
                       <div>
-                        <button id='3'>${gameArr[3]}</button>
-                        <button id='4'>${gameArr[4]}</button>
-                        <button id='5'>${gameArr[5]}</button>
+                        <button onclick='makeMove(four)' id='four'>${gamePositions.four}</button>
+                        <button onclick='makeMove(five)' id='five'>${gamePositions.five}</button>
+                        <button onclick='makeMove(six)' id='six'>${gamePositions.six}</button>
                       </div>
                       <div>
-                        <button id='6'>${gameArr[6]}</button>
-                        <button id='7'>${gameArr[7]}</button>
-                        <button id='8'>${gameArr[8]}</button>
+                        <button onclick='makeMove(seven)' id='seven'>${gamePositions.seven}</button>
+                        <button onclick='makeMove(eight)' id='eight'>${gamePositions.eight}</button>
+                        <button onclick='makeMove(nine)' id='nine'>${gamePositions.nine}</button>
                       </div>
                     </div>`;
 
@@ -42,19 +52,53 @@ const gameBoard = (() => {
 
 	//Game Logic functions
 
-	// playMove function
+  let movesCounter = 0;
 
+  const winningCombos = [
+    ['one', 'two', 'three'],
+    ['four','five', 'six'],
+    ['seven','eight','nine'],
+    ['one','four','seven'],
+    ['two','five','eight'],
+    ['three','six','nine'],
+    ['one','five','nine'],
+    ['three','five','seven']
+  ];
 
-	// checkWin function
+  const makeMove = (buttonId) => {
+    let button = document.getElementById(buttonId);
+    button.setAttribute('onclick','');
+    gamePositions[buttonId] = currentPlayer.mark;
+    movesCounter++;
+    checkWin()
+    if (movesCounter === 9) {
+      displayResults('draw');
+    }
+    switchPlayer();
+    renderGameBoard();
+  }
+
+  // checkWin function
+  
+  const checkWin = () => {
+    let currMark = currentPlayer.mark
+    for (let i = 0; i < winningCombos.length; i++) {
+      if (gamePositions[winningCombos[i][0]] === currMark &&
+          gamePositions[winningCombos[i][1] === currMark &&
+          gamePositions[winningCombos[i][2] === currMark) {
+            displayResults('won',currentPlayer);
+          };
+      }
+  }
 
 
 	// switchPlayer function
 	let player1 = playerFactory(false, "X");
 	let player2 = playerFactory(false, "O");
-	let currentPlayer =
+	let currentPlayer = player1;
 
 	const switchPlayer = () => {
-		(currentPlayer == player1) ? currentPlayer = player2 : currentPlayer = player1
+		(currentPlayer === player1) ? currentPlayer = player2 : currentPlayer = player1
 	}
 
 	// displayResult function
