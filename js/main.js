@@ -41,13 +41,15 @@ const gameBoard = (() => {
 		btnClick[buttonId] = '';
 		gamePositions[buttonId] = currentPlayer.mark;
 		movesCounter++;
-		console.log(gamePositions);
-		checkWin()
-		if (movesCounter === 9) {
+    if (checkWin()) {
+      displayResults('won', currentPlayer);
+    } else if (movesCounter === 9) {
 			displayResults('draw');
-		}
-		switchPlayer();
-		renderGameBoard();
+		} else {
+        switchPlayer();
+		    renderGameBoard();
+
+    }
 	}
 	const renderGameBoard = (resultsTemplate = "") => {
     let playerForm = `<div class="players-info">
@@ -87,24 +89,25 @@ const gameBoard = (() => {
       if (gamePositions[winningCombos[i][0]] === currentPlayer.mark &&
           gamePositions[winningCombos[i][1]] === currentPlayer.mark &&
           gamePositions[winningCombos[i][2]] === currentPlayer.mark) {
-            displayResults('won', currentPlayer);
+              return true;
           };
       }
   }
 	// switchPlayer function
 	const switchPlayer = () => { (currentPlayer === player1) ? currentPlayer = player2 : currentPlayer = player1 }
-	// displayResult function
+  
+  // displayResult function
 	const displayResults = (result, player) => {
 		if (result === "draw") {
 			let drawTemplate = `<div class="result-draw">
                             <h3>It's a draw!</h3>
-                            <button onclick="startGame()">Play Again?</button>
+                            <button onclick="gameBoard.startGame()">Play Again?</button>
 													</div>`;
 			renderGameBoard(drawTemplate);
 		} else if (result === "won") {
 			let winTemplate = `<div class="result-win">
 														<h3>${player.name} wins!</h3>
-														<button onclick="startGame()">Play Again?</button>
+														<button onclick="gameBoard.startGame()">Play Again?</button>
 													</div>`;
 			renderGameBoard(winTemplate);
     };
