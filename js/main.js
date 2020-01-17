@@ -1,5 +1,7 @@
 const gameBoard = (() => {
 
+	//Game Setup
+
 	let gameArr = [1,2,3,4,5,6,7,8,9];
 
 	const render = function (template, node) {
@@ -29,9 +31,48 @@ const gameBoard = (() => {
 	  render(template, document.querySelector('#container'));
 	  console.log(template);
   };
-  
-  return { renderGameBoard, gameArr }
+
+
+	//Player functions
+
+	const playerFactory = (name,mark) => {
+	  return { name, mark }
+	}
+
+
+	//Game Logic functions
+
+	// playMove function
+
+
+	// checkWin function
+
+
+	// switchPlayer function
+	let player1 = playerFactory(false, "X");
+	let player2 = playerFactory(false, "O");
+	let currentPlayer =
+
+	const switchPlayer = () => {
+		(currentPlayer == player1) ? currentPlayer = player2 : currentPlayer = player1
+	}
+
+	// displayResult function
+
+
+	// createPlayer function
+
+	const playerCreation = () => {
+		let p1Name = document.getElementById('player1_name').value
+		let p2Name = document.getElementById('player2_name').value
+
+		player1.name = p1Name
+		player2.name = p2Name
+	}
+
+
+	// playAgain function
+
+
+  renderGameBoard();
 })();
-
-
-export {gameboard};

@@ -1,4 +1,4 @@
-import gameboard from 'gameboard';
+import { gameboard } from 'gameboard';
 import playerFactory from 'player';
 
 // playMove function
