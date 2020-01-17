@@ -16,11 +16,11 @@ const gameBoard = (() => {
     ['three','five','seven']
   ];
 	const render = function (template, node) {
-	  node.innerHTML = template;
+		node.innerHTML = template;
 	};
 	//Player functions
 	const playerFactory = (name,mark) => {
-	  return { name, mark }
+		return { name, mark }
 	}
 	// createPlayer function
 	const playerCreation = () => {
@@ -41,11 +41,11 @@ const gameBoard = (() => {
 			displayResults('draw');
 		} else {
         switchPlayer();
-		    renderGameBoard();
-
+				renderGameBoard();
     }
 	}
 	const renderGameBoard = (resultsTemplate = "") => {
+		let renderTemplate;
     let playerForm = `<form>
                         <div class="form-group">
                           <label for="player1_name">Player X:</label>
@@ -80,8 +80,8 @@ const gameBoard = (() => {
     } else {
       renderTemplate = playerForm;
     }
-	  render(renderTemplate, document.querySelector('#container'));
-  };
+		render(renderTemplate, document.querySelector('#container'));
+	};
   // checkWin function
   const checkWin = () => {
     for (let i = 0; i < winningCombos.length; i++) {
@@ -89,7 +89,7 @@ const gameBoard = (() => {
           gamePositions[winningCombos[i][1]] === currentPlayer.mark &&
           gamePositions[winningCombos[i][2]] === currentPlayer.mark) {
               return true;
-          };
+          }
       }
   }
 	// switchPlayer function
@@ -109,7 +109,7 @@ const gameBoard = (() => {
 														<button onclick="gameBoard.startGame()" class="btn btn-lg btn-success btn-block">Play Again?</button>
 													</div>`;
 			renderGameBoard(winTemplate);
-    };
+    }
 	}
 	const startGame = () => {
 		gamePositions = {
