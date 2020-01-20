@@ -1,0 +1,31 @@
+.col {
+  height: 250px;
+}
+
+.cell {
+  width: 150px;
+  height: 150px;
+}
+
+.gameboard {
+  width: max-content;
+  height: max-content;
+  margin: 80px auto 20px auto;
+  font-size: 40px;
+}
+
+form {
+  height: 500px;
+  width: 300px;
+  margin: 200px auto;
+}
+
+.start-button {
+  width: 300px;
+  margin: auto;
+}
+
+.result-box {
+	width: max-content;
+	margin: auto;	
+}
