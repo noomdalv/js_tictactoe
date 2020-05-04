@@ -51,12 +51,13 @@ git clone https://github.com/noomdalv/js_tictactoe.git
 
 - Github: [@marcos-medeiros](https://github.com/marcos-medeiros)
 - [Linkedin](https://www.linkedin.com/in/marcos-medeiros-6a079a18a/)
+- Email: mvsmdrs@protonmail.com
 
 👤 **Vladimir Luna**
 
 - Github: [@noomdalv](https://github.com/noomdalv)
 - [Linkedin](https://www.linkedin.com/in/vladimir-luna-santos-14673614b/)
-
+- Email: vladlunasan@gmail.com
 
 ## Show your support
 
@@ -65,5 +66,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
-​
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
